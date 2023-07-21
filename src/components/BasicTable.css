@@ -3,7 +3,7 @@ table {
   border-collapse: collapse;
   width: 100%;
 }
-th{
+th, tfoot{
   background-color: black;
   color: white;
   font-size: 20px;
