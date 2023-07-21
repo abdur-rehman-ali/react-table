@@ -1,11 +1,12 @@
 import React, { useMemo } from 'react'
 import { useTable } from 'react-table'
-import { COLUMNS } from './columns'
+import { COLUMNS, HEADER_GROUPS } from './columns'
 import MOCK_DATA from '../data/data.json'
 import './BasicTable.css'
 
 const BasicTable = () => {
-  const columns = useMemo(() => COLUMNS, [])
+  // const columns = useMemo(() => COLUMNS, [])
+  const columns = useMemo(() => HEADER_GROUPS, [])
   const data = useMemo(() => MOCK_DATA, [])
   // useTable recommed you to memoize the rows and columns 
   // SO that data should not be recreated on every render
