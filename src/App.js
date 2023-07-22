@@ -3,11 +3,12 @@ import BasicTable from './components/BasicTable';
 import SortTable from './components/SortTable';
 import GlobalFiltering from './components/GlobalFiltering';
 import ColumnFiltering from './components/ColumnFiltering';
+import PaginationTable from './components/PaginationTable';
 
 function App() {
   return (
     <div className="App">
-      <ColumnFiltering />
+      <PaginationTable />
     </div>
   );
 }
