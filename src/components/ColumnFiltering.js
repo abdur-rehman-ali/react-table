@@ -4,10 +4,17 @@ import { COLUMNS } from './columns'
 import MOCK_DATA from '../data/data.json'
 import './BasicTable.css'
 import SearchForm from './SearchForm'
+import ColumnFilter from './ColumnFilter'
 
 const ColumnFiltering = () => {
   const columns = useMemo(() => COLUMNS, [])
   const data = useMemo(() => MOCK_DATA, [])
+
+  const defaultColumn = useMemo(() => {
+    return {
+      Filter: ColumnFilter
+    }
+  }, [])
 
   const {
     getTableProps,
@@ -20,7 +27,8 @@ const ColumnFiltering = () => {
     setGlobalFilter
   } = useTable({
     columns,
-    data
+    data,
+    defaultColumn
   },
     useGlobalFilter,
     useFilters,
