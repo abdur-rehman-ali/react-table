@@ -21,13 +21,14 @@ const PaginationTable = () => {
     state,
     gotoPage,
     pageCount,
+    setPageSize,
     prepareRow
   } = useTable({
     columns,
     data
   }, usePagination)
 
-  const { pageIndex } = state
+  const { pageIndex, pageSize } = state
   return (
     <>
       <table {...getTableProps()}>
@@ -78,11 +79,21 @@ const PaginationTable = () => {
             max={pageCount}
           />
         </span>
+        <select
+          value={pageSize}
+          onChange={e => setPageSize(Number(e.target.value))} >
+          {
+            [10, 25, 50, 100].map(pageSize => (
+              <option value={pageSize} key={pageSize}>
+                Show {pageSize}
+              </option>
+            ))
+          }
+        </select>
         <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>{'<<'}</button>
         <button onClick={() => previousPage()} disabled={!canPreviousPage}>Previous</button>
         <button onClick={() => nextPage()} disabled={!canNextPage}>Next</button>
         <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>{'>>'}</button>
-
       </div>
     </>
   )
